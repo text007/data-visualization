@@ -6,11 +6,15 @@ from random_walk import RandomWalk
 while True:
         
     # 创建一个 RandomWalk 实例，并将其包含的点都绘制出来
-    rw = RandomWalk()
+    rw = RandomWalk(50000)
     rw.fill_walk()
+
+    # 设置绘图窗口的尺寸
+    plt.figure(dpi=128, figsize=(10, 6))
     
+    # 绘制点并将图形显示出来
     point_numbers = list(range(rw.num_points))
-    plt.scatter(rw.x_values, rw.y_values, c = point_numbers, cmap = plt.cm.Blues, edgecolor = 'none', s = 15)
+    plt.scatter(rw.x_values, rw.y_values, c = point_numbers, cmap = plt.cm.Blues, edgecolor = 'none', s = 1)
 
     # 突出起点和终点
     plt.scatter(0, 0, c='green', edgecolors='none', s=100)
